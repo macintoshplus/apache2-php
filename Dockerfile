@@ -30,6 +30,7 @@ RUN             sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/g' 
 RUN             sed -i 's/\;\ max_input_vars\ \=\ 1000/max_input_vars\ \=\ 250000/g' /etc/php/7.0/apache2/php.ini
 RUN             sed -i 's/memory_limit\ \=\ 128M/memory_limit\ \=\ 512M/g' /etc/php/7.0/apache2/php.ini
 RUN             sed -i 's/max_execution_time\ \=\ 30/max_execution_time\ \=\ 120/g' /etc/php/7.0/apache2/php.ini
+RUN     cd /etc/php/7.0/apache2/conf.d && ln -s ../../mods-available/amqp.ini 20-amqp.ini
 
 # PaaS bootstrap
 COPY		bin/container-bootstrap.sh /usr/bin/container-bootstrap.sh
