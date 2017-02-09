@@ -2,7 +2,7 @@
 # Jb Nahan PHP 5.6 + Apache 2 container
 ##
 
-FROM        	macintoshplus/php56:php7-latest
+FROM        	macintoshplus/php:php7-latest
 MAINTAINER 	Jean-Baptiste Nahan <jean-baptiste@nahan.fr>
 
 # Supervisor
