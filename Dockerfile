@@ -14,11 +14,11 @@ COPY 		conf/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN		apt-get -y install apache2 libapache2-mod-php7.0
 RUN		a2enmod rewrite
 RUN		a2enmod headers
-ENV 		APACHE_RUN_USER www-data
-ENV 		APACHE_RUN_GROUP www-data
+ENV 		APACHE_RUN_USER phpuser
+ENV 		APACHE_RUN_GROUP phpuser
 ENV 		APACHE_LOG_DIR /var/log/apache2
 RUN		rm /etc/apache2/sites-enabled/000-default.conf
-RUN		usermod -u 10000 www-data && usermod -a -G phpuser www-data
+#RUN		usermod -u 10000 www-data && usermod -a -G phpuser www-data
 
 # PHP
 #RUN 		cp /usr/share/php5/php.ini-development /etc/php5/apache2/php.ini
