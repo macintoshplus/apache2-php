@@ -30,7 +30,7 @@ RUN   sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/g' /etc/php5/
 RUN   sed -i 's/\;\ max_input_vars\ \=\ 1000/max_input_vars\ \=\ 250000/g' /etc/php5/apache2/php.ini
 RUN   sed -i 's/memory_limit\ \=\ 128M/memory_limit\ \=\ 512M/g' /etc/php5/apache2/php.ini
 RUN   sed -i 's/max_execution_time\ \=\ 30/max_execution_time\ \=\ 120/g' /etc/php5/apache2/php.ini
-RUN   php5enmod amqp
+RUN   php5enmod amqp xdebug
 
 # PaaS bootstrap
 COPY		bin/container-bootstrap.sh /usr/bin/container-bootstrap.sh
@@ -38,10 +38,10 @@ RUN 		chmod +x /usr/bin/container-bootstrap.sh
 
 EXPOSE      	80
 
-VOLUME 		/src
+VOLUME 		/sources
 VOLUME		/etc/apache2/sites-available
 VOLUME		/var/log/apache2
 
-WORKDIR		/src
+WORKDIR		/sources
 
 CMD 		["/usr/bin/container-bootstrap.sh"]
