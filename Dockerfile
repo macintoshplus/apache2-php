@@ -30,6 +30,7 @@ RUN   sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/g' /etc/php5/
 RUN   sed -i 's/\;\ max_input_vars\ \=\ 1000/max_input_vars\ \=\ 250000/g' /etc/php5/apache2/php.ini
 RUN   sed -i 's/memory_limit\ \=\ 128M/memory_limit\ \=\ 512M/g' /etc/php5/apache2/php.ini
 RUN   sed -i 's/max_execution_time\ \=\ 30/max_execution_time\ \=\ 120/g' /etc/php5/apache2/php.ini
+RUN     sed -i 's/\output_buffering\ \=\ 4096/output_buffering\ \=\ Off/g' /etc/php5/apache2/php.ini
 RUN   php5enmod amqp xdebug
 
 # PaaS bootstrap
