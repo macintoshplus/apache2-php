@@ -1,3 +1,7 @@
+# End Of Lifr
+
+The image for PHP 7.0 will not be maintained anymore.
+
 # Use
 
 composer run -d -v /path/sources:/sources -v /path/to/vhost:/etc/apache2/sites-enabled macintoshplus/apache2-php:php70
