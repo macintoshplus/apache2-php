@@ -31,6 +31,7 @@ RUN     sed -i 's/memory_limit\ \=\ 128M/memory_limit\ \=\ 512M/g' /etc/php/7.2/
 RUN     sed -i 's/max_execution_time\ \=\ 30/max_execution_time\ \=\ 120/g' /etc/php/7.2/apache2/php.ini
 RUN     sed -i 's/\display_errors\ \=\ Off/display_errors\ \=\ On/g' /etc/php/7.2/apache2/php.ini
 RUN     sed -i 's/\output_buffering\ \=\ 4096/output_buffering\ \=\ Off/g' /etc/php/7.2/apache2/php.ini
+RUN     sed -i 's/\session.cookie_httponly\ \=/session.cookie_httponly\ \=\ On/g' /etc/php/7.0/apache2/php.ini
 
 RUN     phpenmod -v 7.2 -s apache2 sqlsrv pdo_sqlsrv amqp xdebug redis imagick
 #RUN     cd /etc/php/7.2/apache2/conf.d && ln -s ../../mods-available/amqp.ini 20-amqp.ini && ln -s ../../mods-available/sqlsrv.ini 20-sqlsrv.ini && ln -s ../../mods-available/pdo_sqlsrv.ini 20-pdo_sqlsrv.ini
