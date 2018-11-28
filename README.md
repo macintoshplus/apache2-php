@@ -1,6 +1,6 @@
 # Use
 
-composer run -d -v /path/sources:/sources -v /path/to/vhost:/etc/apache2/sites-enabled macintoshplus/apache2-php:php72
+composer run -d -v /path/sources:/sources -v /path/to/vhost:/etc/apache2/sites-enabled macintoshplus/apache2-php:php73
 
 
 # Exemple of VHost
@@ -9,7 +9,7 @@ composer run -d -v /path/sources:/sources -v /path/to/vhost:/etc/apache2/sites-e
 <VirtualHost *:80>
         ServerAdmin admin@domain.tld
 
-        DocumentRoot /sources/web
+        DocumentRoot /sources/public
 
         <ifModule mod_headers.c>
                 Header set Server "DOCKER"
@@ -18,7 +18,7 @@ composer run -d -v /path/sources:/sources -v /path/to/vhost:/etc/apache2/sites-e
                 Options FollowSymLinks
                 AllowOverride All
         </Directory>
-        <Directory /sources/web/>
+        <Directory /sources/public/>
                 Options Indexes FollowSymLinks MultiViews
                 AllowOverride All
                 Require all granted
