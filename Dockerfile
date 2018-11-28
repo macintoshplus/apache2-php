@@ -14,6 +14,7 @@ COPY 		conf/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN		apt-get -y install apache2 libapache2-mod-php7.2
 RUN		a2enmod rewrite
 RUN		a2enmod headers
+RUN		a2enmod proxy_wstunnel
 ENV 		APACHE_RUN_USER www-data
 ENV 		APACHE_RUN_GROUP www-data
 ENV 		APACHE_LOG_DIR /var/log/apache2
